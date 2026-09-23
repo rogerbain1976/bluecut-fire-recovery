@@ -1,13 +1,13 @@
 # Blue Cut Fire Recovery: Burned vs Matched Unburned Control
 # Author: Roger Bain
-# Input: BlueCut_Recovery_Points_v2.csv from BlueCut_Recovery_v2 (Earth Engine)
+# Input: data/BlueCut_Recovery_Points_v2.csv from BlueCut_Recovery_v2 (Earth Engine)
 # Steps: drop developed/water/barren/ag land and control points burned since 1996,
 # trim controls to the burn area 5th-95th percentile of elevation, slope, and pre-fire NDVI,
 # weight controls to match burned points across pre-fire NDVI x elevation x slope strata,
 # then compare NDVI relative to pre-fire. CIs use a 1 km spatial block bootstrap (1,000 reps, seed 1).
 
 import pandas as pd, numpy as np
-d=pd.read_csv('BlueCut_Recovery_Points_v2.csv').drop(columns=['system:index','.geo'])
+d=pd.read_csv('data/BlueCut_Recovery_Points_v2.csv').drop(columns=['system:index','.geo'])
 d=d[~d.NLCD2016.isin([21,22,23,24,11,31,81,82])]
 b=d[d.group=='burned'].copy()
 c=d[(d.group=='control')&(d.Burned_Since_1996==0)].copy()

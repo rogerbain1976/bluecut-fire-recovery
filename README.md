@@ -36,11 +36,20 @@ Ten-year analysis of vegetation recovery after the August 2016 Blue Cut Fire in 
 
 **Earth Engine.** Register a noncommercial Earth Engine account, open the [Code Editor](https://code.earthengine.google.com), paste `bluecut_recovery_gee_v2.js`, and click Run. Run `BlueCut_Recovery_Points_v2` from the Tasks tab. Run `bluecut_recovery_gee.js` the same way for the version 1 export. Files are saved to a `BlueCut_GEE` folder in Google Drive.
 
-**Python.** In Google Colab (or any Python 3 environment with pandas, numpy, scipy, and statsmodels), place both CSVs in the working directory and run:
+**Python.** Requires pandas, numpy, scipy, and statsmodels (all preinstalled in Google Colab). From the repository root, run:
 
 ```
 python bluecut_recovery_analysis.py
 python bluecut_control_analysis.py
+```
+
+In Google Colab, clone the repository first:
+
+```
+!git clone https://github.com/ADD-GITHUB-USERNAME/bluecut-fire-recovery.git
+%cd bluecut-fire-recovery
+!python bluecut_recovery_analysis.py
+!python bluecut_control_analysis.py
 ```
 
 Results print to the console. Minor differences in the fourth decimal place can occur across pandas versions.

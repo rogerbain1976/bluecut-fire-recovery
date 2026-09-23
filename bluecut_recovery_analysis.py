@@ -1,7 +1,7 @@
 # Blue Cut Fire Recovery: Statistical Analysis of GEE Sample Points
 # Author: Roger Bain
-# Input: BlueCut_Recovery_Points.csv exported by BlueCut_Recovery_v1 (Earth Engine)
-# Run in Google Colab: upload the CSV, then run this file top to bottom.
+# Input: data/BlueCut_Recovery_Points.csv exported by BlueCut_Recovery_v1 (Earth Engine)
+# Run from the repository root so the data/ folder is found.
 
 import pandas as pd
 import numpy as np
@@ -11,7 +11,7 @@ from scipy.spatial import cKDTree
 # ---------------------------------------------------------------
 # 1. Load and clean
 # ---------------------------------------------------------------
-d = pd.read_csv('BlueCut_Recovery_Points.csv').drop(columns=['system:index', '.geo'])
+d = pd.read_csv('data/BlueCut_Recovery_Points.csv').drop(columns=['system:index', '.geo'])
 print('Points exported:', len(d))
 
 # Remove developed land (NLCD 21-24): I-15, rail lines, structures
